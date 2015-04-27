@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e68c066929894b2a908961bd523d21b4" Name="Diagram1">
+        <EntityTypeShape EntityType="okimtsDbModel.BuildinObject" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="okimtsDbModel.ContractorEmploye" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="okimtsDbModel.Contractor" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="okimtsDbModel.DocState" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="okimtsDbModel.Employe" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="okimtsDbModel.FileMetaData" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="okimtsDbModel.InboxDocument" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="okimtsDbModel.OutboxDocument" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="okimtsDbModel.TypesOfOutboxDoc" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="okimtsDbModel.User" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="okimtsDbModel.FK_InboxDocuments_BuildinObjects" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_OutboxDocument_BuildinObjects" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_ContractorEmployes_Contractors" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_InboxDocuments_ContractorEmployes" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_OutboxDocument_ContractorEmployes" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_OutboxDocument_Contractors" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_OutboxDocument_DocStates" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_InboxDocuments_Employes" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_OutboxDocument_EmployesWhoMade" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_OutboxDocument_EmployesWhoSign" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_Users_Employes" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_InboxDocuments_FileMetaData" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_OutboxDocument_FileMetaData" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_InboxDocs_OutboxDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_OutboxDocument_InboxDocs" ManuallyRouted="false" />
+        <AssociationConnector Association="okimtsDbModel.FK_OutboxDocument_TypesOfOutboxDocs" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="okimtsDbModel.CompanyStructure" Width="1.5" PointX="7.375" PointY="0.875" />
+        <AssociationConnector Association="okimtsDbModel.FK_CompanyStructure_CompanyStructure" />
+        <AssociationConnector Association="okimtsDbModel.FK_Employes_CompanyStructure" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

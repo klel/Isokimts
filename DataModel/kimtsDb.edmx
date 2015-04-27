@@ -1,0 +1,1091 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="okimtsDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="okimtsDbModelStoreContainer">
+    <EntitySet Name="BuildinObjects" EntityType="okimtsDbModel.Store.BuildinObjects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContractorEmployes" EntityType="okimtsDbModel.Store.ContractorEmployes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contractors" EntityType="okimtsDbModel.Store.Contractors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocStates" EntityType="okimtsDbModel.Store.DocStates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employes" EntityType="okimtsDbModel.Store.Employes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FileMetaDatas" EntityType="okimtsDbModel.Store.FileMetaDatas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InboxDocuments" EntityType="okimtsDbModel.Store.InboxDocuments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OutboxDocuments" EntityType="okimtsDbModel.Store.OutboxDocuments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypesOfOutboxDocs" EntityType="okimtsDbModel.Store.TypesOfOutboxDocs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="okimtsDbModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyStructures" EntityType="okimtsDbModel.Store.CompanyStructures" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_InboxDocuments_BuildinObjects" Association="okimtsDbModel.Store.FK_InboxDocuments_BuildinObjects">
+      <End Role="BuildinObjects" EntitySet="BuildinObjects" />
+      <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutboxDocument_BuildinObjects" Association="okimtsDbModel.Store.FK_OutboxDocument_BuildinObjects">
+      <End Role="BuildinObjects" EntitySet="BuildinObjects" />
+      <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContractorEmployes_Contractors" Association="okimtsDbModel.Store.FK_ContractorEmployes_Contractors">
+      <End Role="Contractors" EntitySet="Contractors" />
+      <End Role="ContractorEmployes" EntitySet="ContractorEmployes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboxDocuments_ContractorEmployes" Association="okimtsDbModel.Store.FK_InboxDocuments_ContractorEmployes">
+      <End Role="ContractorEmployes" EntitySet="ContractorEmployes" />
+      <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutboxDocument_ContractorEmployes" Association="okimtsDbModel.Store.FK_OutboxDocument_ContractorEmployes">
+      <End Role="ContractorEmployes" EntitySet="ContractorEmployes" />
+      <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutboxDocument_Contractors" Association="okimtsDbModel.Store.FK_OutboxDocument_Contractors">
+      <End Role="Contractors" EntitySet="Contractors" />
+      <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutboxDocument_DocStates" Association="okimtsDbModel.Store.FK_OutboxDocument_DocStates">
+      <End Role="DocStates" EntitySet="DocStates" />
+      <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboxDocuments_Employes" Association="okimtsDbModel.Store.FK_InboxDocuments_Employes">
+      <End Role="Employes" EntitySet="Employes" />
+      <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutboxDocument_EmployesWhoMade" Association="okimtsDbModel.Store.FK_OutboxDocument_EmployesWhoMade">
+      <End Role="Employes" EntitySet="Employes" />
+      <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutboxDocument_EmployesWhoSign" Association="okimtsDbModel.Store.FK_OutboxDocument_EmployesWhoSign">
+      <End Role="Employes" EntitySet="Employes" />
+      <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Employes" Association="okimtsDbModel.Store.FK_Users_Employes">
+      <End Role="Employes" EntitySet="Employes" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboxDocuments_FileMetaData" Association="okimtsDbModel.Store.FK_InboxDocuments_FileMetaData">
+      <End Role="FileMetaData" EntitySet="FileMetaDatas" />
+      <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutboxDocument_FileMetaData" Association="okimtsDbModel.Store.FK_OutboxDocument_FileMetaData">
+      <End Role="FileMetaData" EntitySet="FileMetaDatas" />
+      <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InboxDocs_OutboxDocument" Association="okimtsDbModel.Store.FK_InboxDocs_OutboxDocument">
+      <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+      <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutboxDocument_InboxDocs" Association="okimtsDbModel.Store.FK_OutboxDocument_InboxDocs">
+      <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+      <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutboxDocument_TypesOfOutboxDocs" Association="okimtsDbModel.Store.FK_OutboxDocument_TypesOfOutboxDocs">
+      <End Role="TypesOfOutboxDocs" EntitySet="TypesOfOutboxDocs" />
+      <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyStructure_CompanyStructure" Association="okimtsDbModel.Store.FK_CompanyStructure_CompanyStructure">
+      <End Role="CompanyStructure" EntitySet="CompanyStructures" />
+      <End Role="CompanyStructure1" EntitySet="CompanyStructures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employes_CompanyStructure" Association="okimtsDbModel.Store.FK_Employes_CompanyStructure">
+      <End Role="CompanyStructure" EntitySet="CompanyStructures" />
+      <End Role="Employe" EntitySet="Employes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BuildinObjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjName" Type="nchar" Nullable="false" MaxLength="200" />
+    <Property Name="ObjCode" Type="nchar" Nullable="true" MaxLength="10" />
+    <Property Name="ProjCypher" Type="nchar" Nullable="true" MaxLength="10" />
+    <Property Name="SZS" Type="nchar" Nullable="true" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ContractorEmployes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nchar" Nullable="false" MaxLength="400" />
+    <Property Name="FName" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="SName" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="LName" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="LNameDateln" Type="nchar" Nullable="true" MaxLength="100" />
+    <Property Name="Post" Type="nchar" Nullable="false" MaxLength="200" />
+    <Property Name="PostDateln" Type="nchar" Nullable="true" MaxLength="200" />
+    <Property Name="Gender" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Email" Type="nchar" Nullable="true" MaxLength="100" />
+    <Property Name="Phone" Type="nchar" Nullable="true" MaxLength="50" />
+    <Property Name="Contractor" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Contractors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrgName" Type="nchar" Nullable="false" MaxLength="500" />
+    <Property Name="Email" Type="nchar" Nullable="true" MaxLength="100" />
+    <Property Name="Phone" Type="nchar" Nullable="true" MaxLength="25" />
+    <Property Name="Fax" Type="nchar" Nullable="true" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="DocStates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateName" Type="nchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Employes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nchar" Nullable="false" MaxLength="200" />
+    <Property Name="NameInDocs" Type="nchar" Nullable="true" MaxLength="150" />
+    <Property Name="FName" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="SName" Type="nchar" Nullable="false" MaxLength="80" />
+    <Property Name="LName" Type="nchar" Nullable="false" MaxLength="70" />
+    <Property Name="State" Type="nchar" Nullable="true" MaxLength="10" />
+    <Property Name="Email" Type="nchar" Nullable="true" MaxLength="100" />
+    <Property Name="Phone" Type="nchar" Nullable="true" MaxLength="30" />
+    <Property Name="Post" Type="nchar" Nullable="true" MaxLength="200" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FileMetaDatas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nchar" Nullable="false" MaxLength="80" />
+    <Property Name="UploadDataTime" Type="datetime" Nullable="false" />
+    <Property Name="Users" Type="int" Nullable="false" />
+    <Property Name="FileSize" Type="nchar" Nullable="true" MaxLength="50" />
+    <Property Name="Data" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="InboxDocuments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sender" Type="int" Nullable="false" />
+    <Property Name="SenderNum" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="SenderDate" Type="datetime" Nullable="false" />
+    <Property Name="ResponseOn" Type="int" Nullable="true" />
+    <Property Name="Reciever" Type="int" Nullable="false" />
+    <Property Name="DocTheme" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="DocState" Type="int" Nullable="true" />
+    <Property Name="BuildingObj" Type="int" Nullable="true" />
+    <Property Name="Files" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="OutboxDocuments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecieverOrg" Type="int" Nullable="false" />
+    <Property Name="RecieverEmploye" Type="int" Nullable="true" />
+    <Property Name="BuildingObj" Type="int" Nullable="true" />
+    <Property Name="OutboxNum" Type="nchar" Nullable="true" MaxLength="10" />
+    <Property Name="OutboxDate" Type="datetime" Nullable="true" />
+    <Property Name="DocTheme" Type="nchar" Nullable="false" MaxLength="60" />
+    <Property Name="WhoSign" Type="int" Nullable="false" />
+    <Property Name="WhoMade" Type="int" Nullable="false" />
+    <Property Name="ResponseOn" Type="int" Nullable="true" />
+    <Property Name="SentDate" Type="datetime" Nullable="true" />
+    <Property Name="DocState" Type="int" Nullable="true" />
+    <Property Name="Files" Type="int" Nullable="true" />
+    <Property Name="TypeOfOutboxDoc" Type="int" Nullable="false" />
+    <Property Name="IndexNumber" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TypesOfOutboxDocs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameOfType" Type="nchar" Nullable="false" MaxLength="180" />
+    <Property Name="NumberingMethod" Type="nchar" Nullable="false" MaxLength="40" />
+    <Property Name="NumeratorPrefix" Type="nchar" Nullable="true" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UniqId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nchar" Nullable="true" MaxLength="100" />
+    <Property Name="Employe" Type="int" Nullable="false" />
+    <Property Name="Invalid" Type="bit" Nullable="true" />
+    <Property Name="Files" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CompanyStructures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DepartmentName" Type="nchar" Nullable="false" MaxLength="200" />
+    <Property Name="ParentDepartmentId" Type="int" Nullable="true" />
+  </EntityType>
+  <Association Name="FK_InboxDocuments_BuildinObjects">
+    <End Role="BuildinObjects" Type="okimtsDbModel.Store.BuildinObjects" Multiplicity="0..1" />
+    <End Role="InboxDocuments" Type="okimtsDbModel.Store.InboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuildinObjects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InboxDocuments">
+        <PropertyRef Name="BuildingObj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutboxDocument_BuildinObjects">
+    <End Role="BuildinObjects" Type="okimtsDbModel.Store.BuildinObjects" Multiplicity="0..1" />
+    <End Role="OutboxDocument" Type="okimtsDbModel.Store.OutboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuildinObjects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutboxDocument">
+        <PropertyRef Name="BuildingObj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContractorEmployes_Contractors">
+    <End Role="Contractors" Type="okimtsDbModel.Store.Contractors" Multiplicity="0..1" />
+    <End Role="ContractorEmployes" Type="okimtsDbModel.Store.ContractorEmployes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contractors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContractorEmployes">
+        <PropertyRef Name="Contractor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboxDocuments_ContractorEmployes">
+    <End Role="ContractorEmployes" Type="okimtsDbModel.Store.ContractorEmployes" Multiplicity="1" />
+    <End Role="InboxDocuments" Type="okimtsDbModel.Store.InboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractorEmployes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InboxDocuments">
+        <PropertyRef Name="Sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutboxDocument_ContractorEmployes">
+    <End Role="ContractorEmployes" Type="okimtsDbModel.Store.ContractorEmployes" Multiplicity="0..1" />
+    <End Role="OutboxDocument" Type="okimtsDbModel.Store.OutboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractorEmployes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutboxDocument">
+        <PropertyRef Name="RecieverEmploye" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutboxDocument_Contractors">
+    <End Role="Contractors" Type="okimtsDbModel.Store.Contractors" Multiplicity="1" />
+    <End Role="OutboxDocument" Type="okimtsDbModel.Store.OutboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contractors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutboxDocument">
+        <PropertyRef Name="RecieverOrg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutboxDocument_DocStates">
+    <End Role="DocStates" Type="okimtsDbModel.Store.DocStates" Multiplicity="0..1" />
+    <End Role="OutboxDocument" Type="okimtsDbModel.Store.OutboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocStates">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutboxDocument">
+        <PropertyRef Name="DocState" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboxDocuments_Employes">
+    <End Role="Employes" Type="okimtsDbModel.Store.Employes" Multiplicity="1" />
+    <End Role="InboxDocuments" Type="okimtsDbModel.Store.InboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InboxDocuments">
+        <PropertyRef Name="Reciever" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutboxDocument_EmployesWhoMade">
+    <End Role="Employes" Type="okimtsDbModel.Store.Employes" Multiplicity="1" />
+    <End Role="OutboxDocument" Type="okimtsDbModel.Store.OutboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutboxDocument">
+        <PropertyRef Name="WhoMade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutboxDocument_EmployesWhoSign">
+    <End Role="Employes" Type="okimtsDbModel.Store.Employes" Multiplicity="1" />
+    <End Role="OutboxDocument" Type="okimtsDbModel.Store.OutboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutboxDocument">
+        <PropertyRef Name="WhoSign" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Employes">
+    <End Role="Employes" Type="okimtsDbModel.Store.Employes" Multiplicity="1" />
+    <End Role="Users" Type="okimtsDbModel.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Employe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboxDocuments_FileMetaData">
+    <End Role="FileMetaData" Type="okimtsDbModel.Store.FileMetaDatas" Multiplicity="0..1" />
+    <End Role="InboxDocuments" Type="okimtsDbModel.Store.InboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FileMetaData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InboxDocuments">
+        <PropertyRef Name="Files" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutboxDocument_FileMetaData">
+    <End Role="FileMetaData" Type="okimtsDbModel.Store.FileMetaDatas" Multiplicity="0..1" />
+    <End Role="OutboxDocument" Type="okimtsDbModel.Store.OutboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FileMetaData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutboxDocument">
+        <PropertyRef Name="Files" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InboxDocs_OutboxDocument">
+    <End Role="OutboxDocument" Type="okimtsDbModel.Store.OutboxDocuments" Multiplicity="0..1" />
+    <End Role="InboxDocuments" Type="okimtsDbModel.Store.InboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OutboxDocument">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InboxDocuments">
+        <PropertyRef Name="ResponseOn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutboxDocument_InboxDocs">
+    <End Role="InboxDocuments" Type="okimtsDbModel.Store.InboxDocuments" Multiplicity="0..1" />
+    <End Role="OutboxDocument" Type="okimtsDbModel.Store.OutboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InboxDocuments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutboxDocument">
+        <PropertyRef Name="ResponseOn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutboxDocument_TypesOfOutboxDocs">
+    <End Role="TypesOfOutboxDocs" Type="okimtsDbModel.Store.TypesOfOutboxDocs" Multiplicity="1" />
+    <End Role="OutboxDocument" Type="okimtsDbModel.Store.OutboxDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypesOfOutboxDocs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutboxDocument">
+        <PropertyRef Name="TypeOfOutboxDoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyStructure_CompanyStructure">
+    <End Role="CompanyStructure" Type="okimtsDbModel.Store.CompanyStructures" Multiplicity="0..1" />
+    <End Role="CompanyStructure1" Type="okimtsDbModel.Store.CompanyStructures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyStructure">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyStructure1">
+        <PropertyRef Name="ParentDepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employes_CompanyStructure">
+    <End Role="CompanyStructure" Type="okimtsDbModel.Store.CompanyStructures" Multiplicity="1" />
+    <End Role="Employe" Type="okimtsDbModel.Store.Employes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyStructure">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employe">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="okimtsDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BuildinObject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjName" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ObjCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ProjCypher" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SZS" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="InboxDocuments" Relationship="Self.FK_InboxDocuments_BuildinObjects" FromRole="BuildinObjects" ToRole="InboxDocuments" />
+          <NavigationProperty Name="OutboxDocuments" Relationship="Self.FK_OutboxDocument_BuildinObjects" FromRole="BuildinObjects" ToRole="OutboxDocument" />
+        </EntityType>
+        <EntityType Name="ContractorEmploye">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="400" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="LNameDateln" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Post" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="PostDateln" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Contractor" Type="Int32" />
+          <NavigationProperty Name="Contractor1" Relationship="Self.FK_ContractorEmployes_Contractors" FromRole="ContractorEmployes" ToRole="Contractors" />
+          <NavigationProperty Name="InboxDocuments" Relationship="Self.FK_InboxDocuments_ContractorEmployes" FromRole="ContractorEmployes" ToRole="InboxDocuments" />
+          <NavigationProperty Name="OutboxDocuments" Relationship="Self.FK_OutboxDocument_ContractorEmployes" FromRole="ContractorEmployes" ToRole="OutboxDocument" />
+        </EntityType>
+        <EntityType Name="Contractor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgName" Type="String" MaxLength="500" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ContractorEmployes" Relationship="Self.FK_ContractorEmployes_Contractors" FromRole="Contractors" ToRole="ContractorEmployes" />
+          <NavigationProperty Name="OutboxDocuments" Relationship="Self.FK_OutboxDocument_Contractors" FromRole="Contractors" ToRole="OutboxDocument" />
+        </EntityType>
+        <EntityType Name="DocState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="OutboxDocuments" Relationship="Self.FK_OutboxDocument_DocStates" FromRole="DocStates" ToRole="OutboxDocument" />
+        </EntityType>
+        <EntityType Name="Employe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NameInDocs" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="FName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SName" Type="String" MaxLength="80" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="70" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Post" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="InboxDocuments" Relationship="Self.FK_InboxDocuments_Employes" FromRole="Employes" ToRole="InboxDocuments" />
+          <NavigationProperty Name="OutboxDocuments" Relationship="Self.FK_OutboxDocument_EmployesWhoMade" FromRole="Employes" ToRole="OutboxDocument" />
+          <NavigationProperty Name="OutboxDocuments1" Relationship="Self.FK_OutboxDocument_EmployesWhoSign" FromRole="Employes" ToRole="OutboxDocument" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Employes" FromRole="Employes" ToRole="Users" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CompanyStructure" Relationship="okimtsDbModel.FK_Employes_CompanyStructure" FromRole="Employe" ToRole="CompanyStructure" />
+        </EntityType>
+        <EntityType Name="FileMetaData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="80" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="UploadDataTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Users" Type="Int32" Nullable="false" />
+          <Property Name="FileSize" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="InboxDocuments" Relationship="Self.FK_InboxDocuments_FileMetaData" FromRole="FileMetaData" ToRole="InboxDocuments" />
+          <NavigationProperty Name="OutboxDocuments" Relationship="Self.FK_OutboxDocument_FileMetaData" FromRole="FileMetaData" ToRole="OutboxDocument" />
+        </EntityType>
+        <EntityType Name="InboxDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender" Type="Int32" Nullable="false" />
+          <Property Name="SenderNum" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SenderDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ResponseOn" Type="Int32" />
+          <Property Name="Reciever" Type="Int32" Nullable="false" />
+          <Property Name="DocTheme" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DocState" Type="Int32" />
+          <Property Name="BuildingObj" Type="Int32" />
+          <Property Name="Files" Type="Int32" />
+          <NavigationProperty Name="BuildinObject" Relationship="Self.FK_InboxDocuments_BuildinObjects" FromRole="InboxDocuments" ToRole="BuildinObjects" />
+          <NavigationProperty Name="ContractorEmploye" Relationship="Self.FK_InboxDocuments_ContractorEmployes" FromRole="InboxDocuments" ToRole="ContractorEmployes" />
+          <NavigationProperty Name="Employe" Relationship="Self.FK_InboxDocuments_Employes" FromRole="InboxDocuments" ToRole="Employes" />
+          <NavigationProperty Name="FileMetaData" Relationship="Self.FK_InboxDocuments_FileMetaData" FromRole="InboxDocuments" ToRole="FileMetaData" />
+          <NavigationProperty Name="OutboxDocument" Relationship="Self.FK_InboxDocs_OutboxDocument" FromRole="InboxDocuments" ToRole="OutboxDocument" />
+          <NavigationProperty Name="OutboxDocuments" Relationship="Self.FK_OutboxDocument_InboxDocs" FromRole="InboxDocuments" ToRole="OutboxDocument" />
+        </EntityType>
+        <EntityType Name="OutboxDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecieverOrg" Type="Int32" Nullable="false" />
+          <Property Name="RecieverEmploye" Type="Int32" />
+          <Property Name="BuildingObj" Type="Int32" />
+          <Property Name="OutboxNum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="OutboxDate" Type="DateTime" Precision="0" />
+          <Property Name="DocTheme" Type="String" MaxLength="60" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="WhoSign" Type="Int32" Nullable="false" />
+          <Property Name="WhoMade" Type="Int32" Nullable="false" />
+          <Property Name="ResponseOn" Type="Int32" />
+          <Property Name="SentDate" Type="DateTime" Precision="0" />
+          <Property Name="DocState" Type="Int32" />
+          <Property Name="Files" Type="Int32" />
+          <Property Name="TypeOfOutboxDoc" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BuildinObject" Relationship="Self.FK_OutboxDocument_BuildinObjects" FromRole="OutboxDocument" ToRole="BuildinObjects" />
+          <NavigationProperty Name="ContractorEmploye" Relationship="Self.FK_OutboxDocument_ContractorEmployes" FromRole="OutboxDocument" ToRole="ContractorEmployes" />
+          <NavigationProperty Name="Contractor" Relationship="Self.FK_OutboxDocument_Contractors" FromRole="OutboxDocument" ToRole="Contractors" />
+          <NavigationProperty Name="DocState1" Relationship="Self.FK_OutboxDocument_DocStates" FromRole="OutboxDocument" ToRole="DocStates" />
+          <NavigationProperty Name="Employe" Relationship="Self.FK_OutboxDocument_EmployesWhoMade" FromRole="OutboxDocument" ToRole="Employes" />
+          <NavigationProperty Name="Employe1" Relationship="Self.FK_OutboxDocument_EmployesWhoSign" FromRole="OutboxDocument" ToRole="Employes" />
+          <NavigationProperty Name="FileMetaData" Relationship="Self.FK_OutboxDocument_FileMetaData" FromRole="OutboxDocument" ToRole="FileMetaData" />
+          <NavigationProperty Name="InboxDocuments" Relationship="Self.FK_InboxDocs_OutboxDocument" FromRole="OutboxDocument" ToRole="InboxDocuments" />
+          <NavigationProperty Name="InboxDocument" Relationship="Self.FK_OutboxDocument_InboxDocs" FromRole="OutboxDocument" ToRole="InboxDocuments" />
+          <NavigationProperty Name="TypesOfOutboxDoc" Relationship="Self.FK_OutboxDocument_TypesOfOutboxDocs" FromRole="OutboxDocument" ToRole="TypesOfOutboxDocs" />
+          <Property Name="IndexNumber" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="TypesOfOutboxDoc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameOfType" Type="String" MaxLength="180" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NumberingMethod" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NumeratorPrefix" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="OutboxDocuments" Relationship="Self.FK_OutboxDocument_TypesOfOutboxDocs" FromRole="TypesOfOutboxDocs" ToRole="OutboxDocument" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UniqId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Employe" Type="Int32" Nullable="false" />
+          <Property Name="Invalid" Type="Boolean" />
+          <Property Name="Files" Type="Int32" />
+          <NavigationProperty Name="Employe1" Relationship="Self.FK_Users_Employes" FromRole="Users" ToRole="Employes" />
+        </EntityType>
+        <Association Name="FK_InboxDocuments_BuildinObjects">
+          <End Role="BuildinObjects" Type="Self.BuildinObject" Multiplicity="0..1" />
+          <End Role="InboxDocuments" Type="Self.InboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuildinObjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InboxDocuments">
+              <PropertyRef Name="BuildingObj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutboxDocument_BuildinObjects">
+          <End Role="BuildinObjects" Type="Self.BuildinObject" Multiplicity="0..1" />
+          <End Role="OutboxDocument" Type="Self.OutboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuildinObjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutboxDocument">
+              <PropertyRef Name="BuildingObj" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorEmployes_Contractors">
+          <End Role="Contractors" Type="Self.Contractor" Multiplicity="0..1" />
+          <End Role="ContractorEmployes" Type="Self.ContractorEmploye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contractors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractorEmployes">
+              <PropertyRef Name="Contractor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InboxDocuments_ContractorEmployes">
+          <End Role="ContractorEmployes" Type="Self.ContractorEmploye" Multiplicity="1" />
+          <End Role="InboxDocuments" Type="Self.InboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorEmployes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InboxDocuments">
+              <PropertyRef Name="Sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutboxDocument_ContractorEmployes">
+          <End Role="ContractorEmployes" Type="Self.ContractorEmploye" Multiplicity="0..1" />
+          <End Role="OutboxDocument" Type="Self.OutboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorEmployes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutboxDocument">
+              <PropertyRef Name="RecieverEmploye" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutboxDocument_Contractors">
+          <End Role="Contractors" Type="Self.Contractor" Multiplicity="1" />
+          <End Role="OutboxDocument" Type="Self.OutboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contractors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutboxDocument">
+              <PropertyRef Name="RecieverOrg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutboxDocument_DocStates">
+          <End Role="DocStates" Type="Self.DocState" Multiplicity="0..1" />
+          <End Role="OutboxDocument" Type="Self.OutboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocStates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutboxDocument">
+              <PropertyRef Name="DocState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InboxDocuments_Employes">
+          <End Role="Employes" Type="Self.Employe" Multiplicity="1" />
+          <End Role="InboxDocuments" Type="Self.InboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InboxDocuments">
+              <PropertyRef Name="Reciever" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutboxDocument_EmployesWhoMade">
+          <End Role="Employes" Type="Self.Employe" Multiplicity="1" />
+          <End Role="OutboxDocument" Type="Self.OutboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutboxDocument">
+              <PropertyRef Name="WhoMade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutboxDocument_EmployesWhoSign">
+          <End Role="Employes" Type="Self.Employe" Multiplicity="1" />
+          <End Role="OutboxDocument" Type="Self.OutboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutboxDocument">
+              <PropertyRef Name="WhoSign" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Employes">
+          <End Role="Employes" Type="Self.Employe" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Employe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InboxDocuments_FileMetaData">
+          <End Role="FileMetaData" Type="Self.FileMetaData" Multiplicity="0..1" />
+          <End Role="InboxDocuments" Type="Self.InboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileMetaData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InboxDocuments">
+              <PropertyRef Name="Files" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutboxDocument_FileMetaData">
+          <End Role="FileMetaData" Type="Self.FileMetaData" Multiplicity="0..1" />
+          <End Role="OutboxDocument" Type="Self.OutboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileMetaData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutboxDocument">
+              <PropertyRef Name="Files" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InboxDocs_OutboxDocument">
+          <End Role="OutboxDocument" Type="Self.OutboxDocument" Multiplicity="0..1" />
+          <End Role="InboxDocuments" Type="Self.InboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OutboxDocument">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InboxDocuments">
+              <PropertyRef Name="ResponseOn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutboxDocument_InboxDocs">
+          <End Role="InboxDocuments" Type="Self.InboxDocument" Multiplicity="0..1" />
+          <End Role="OutboxDocument" Type="Self.OutboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InboxDocuments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutboxDocument">
+              <PropertyRef Name="ResponseOn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutboxDocument_TypesOfOutboxDocs">
+          <End Role="TypesOfOutboxDocs" Type="Self.TypesOfOutboxDoc" Multiplicity="1" />
+          <End Role="OutboxDocument" Type="Self.OutboxDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfOutboxDocs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutboxDocument">
+              <PropertyRef Name="TypeOfOutboxDoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="okimtsDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BuildinObjects" EntityType="Self.BuildinObject" />
+          <EntitySet Name="ContractorEmployes" EntityType="Self.ContractorEmploye" />
+          <EntitySet Name="Contractors" EntityType="Self.Contractor" />
+          <EntitySet Name="DocStates" EntityType="Self.DocState" />
+          <EntitySet Name="Employes" EntityType="Self.Employe" />
+          <EntitySet Name="FileMetaDatas" EntityType="Self.FileMetaData" />
+          <EntitySet Name="InboxDocuments" EntityType="Self.InboxDocument" />
+          <EntitySet Name="OutboxDocuments" EntityType="Self.OutboxDocument" />
+          <EntitySet Name="TypesOfOutboxDocs" EntityType="Self.TypesOfOutboxDoc" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_InboxDocuments_BuildinObjects" Association="Self.FK_InboxDocuments_BuildinObjects">
+            <End Role="BuildinObjects" EntitySet="BuildinObjects" />
+            <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutboxDocument_BuildinObjects" Association="Self.FK_OutboxDocument_BuildinObjects">
+            <End Role="BuildinObjects" EntitySet="BuildinObjects" />
+            <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorEmployes_Contractors" Association="Self.FK_ContractorEmployes_Contractors">
+            <End Role="Contractors" EntitySet="Contractors" />
+            <End Role="ContractorEmployes" EntitySet="ContractorEmployes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InboxDocuments_ContractorEmployes" Association="Self.FK_InboxDocuments_ContractorEmployes">
+            <End Role="ContractorEmployes" EntitySet="ContractorEmployes" />
+            <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutboxDocument_ContractorEmployes" Association="Self.FK_OutboxDocument_ContractorEmployes">
+            <End Role="ContractorEmployes" EntitySet="ContractorEmployes" />
+            <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutboxDocument_Contractors" Association="Self.FK_OutboxDocument_Contractors">
+            <End Role="Contractors" EntitySet="Contractors" />
+            <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutboxDocument_DocStates" Association="Self.FK_OutboxDocument_DocStates">
+            <End Role="DocStates" EntitySet="DocStates" />
+            <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InboxDocuments_Employes" Association="Self.FK_InboxDocuments_Employes">
+            <End Role="Employes" EntitySet="Employes" />
+            <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutboxDocument_EmployesWhoMade" Association="Self.FK_OutboxDocument_EmployesWhoMade">
+            <End Role="Employes" EntitySet="Employes" />
+            <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutboxDocument_EmployesWhoSign" Association="Self.FK_OutboxDocument_EmployesWhoSign">
+            <End Role="Employes" EntitySet="Employes" />
+            <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Employes" Association="Self.FK_Users_Employes">
+            <End Role="Employes" EntitySet="Employes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InboxDocuments_FileMetaData" Association="Self.FK_InboxDocuments_FileMetaData">
+            <End Role="FileMetaData" EntitySet="FileMetaDatas" />
+            <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutboxDocument_FileMetaData" Association="Self.FK_OutboxDocument_FileMetaData">
+            <End Role="FileMetaData" EntitySet="FileMetaDatas" />
+            <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InboxDocs_OutboxDocument" Association="Self.FK_InboxDocs_OutboxDocument">
+            <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+            <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutboxDocument_InboxDocs" Association="Self.FK_OutboxDocument_InboxDocs">
+            <End Role="InboxDocuments" EntitySet="InboxDocuments" />
+            <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutboxDocument_TypesOfOutboxDocs" Association="Self.FK_OutboxDocument_TypesOfOutboxDocs">
+            <End Role="TypesOfOutboxDocs" EntitySet="TypesOfOutboxDocs" />
+            <End Role="OutboxDocument" EntitySet="OutboxDocuments" />
+          </AssociationSet>
+          <EntitySet Name="CompanyStructures" EntityType="okimtsDbModel.CompanyStructure" />
+          <AssociationSet Name="FK_CompanyStructure_CompanyStructure" Association="okimtsDbModel.FK_CompanyStructure_CompanyStructure">
+            <End Role="CompanyStructure" EntitySet="CompanyStructures" />
+            <End Role="CompanyStructure1" EntitySet="CompanyStructures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employes_CompanyStructure" Association="okimtsDbModel.FK_Employes_CompanyStructure">
+            <End Role="CompanyStructure" EntitySet="CompanyStructures" />
+            <End Role="Employe" EntitySet="Employes" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="CompanyStructure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="ParentDepartmentId" Type="Int32" />
+          <NavigationProperty Name="ChildNodes" Relationship="okimtsDbModel.FK_CompanyStructure_CompanyStructure" FromRole="CompanyStructure" ToRole="CompanyStructure1" />
+          <NavigationProperty Name="ParentNode" Relationship="okimtsDbModel.FK_CompanyStructure_CompanyStructure" FromRole="CompanyStructure1" ToRole="CompanyStructure" />
+          <NavigationProperty Name="Employes" Relationship="okimtsDbModel.FK_Employes_CompanyStructure" FromRole="CompanyStructure" ToRole="Employe" />
+        </EntityType>
+        <Association Name="FK_CompanyStructure_CompanyStructure">
+          <End Type="okimtsDbModel.CompanyStructure" Role="CompanyStructure" Multiplicity="0..1" />
+          <End Type="okimtsDbModel.CompanyStructure" Role="CompanyStructure1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyStructure">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompanyStructure1">
+              <PropertyRef Name="ParentDepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employes_CompanyStructure">
+          <End Type="okimtsDbModel.CompanyStructure" Role="CompanyStructure" Multiplicity="1" />
+          <End Type="okimtsDbModel.Employe" Role="Employe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyStructure">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employe">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="okimtsDbModelStoreContainer" CdmEntityContainer="okimtsDbEntities">
+    <EntitySetMapping Name="BuildinObjects">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.BuildinObject)">
+        <MappingFragment StoreEntitySet="BuildinObjects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ObjName" ColumnName="ObjName" />
+          <ScalarProperty Name="ObjCode" ColumnName="ObjCode" />
+          <ScalarProperty Name="ProjCypher" ColumnName="ProjCypher" />
+          <ScalarProperty Name="SZS" ColumnName="SZS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractorEmployes">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.ContractorEmploye)">
+        <MappingFragment StoreEntitySet="ContractorEmployes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="SName" ColumnName="SName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="LNameDateln" ColumnName="LNameDateln" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="PostDateln" ColumnName="PostDateln" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Contractor" ColumnName="Contractor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contractors">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.Contractor)">
+        <MappingFragment StoreEntitySet="Contractors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocStates">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.DocState)">
+        <MappingFragment StoreEntitySet="DocStates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employes">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.Employe)">
+        <MappingFragment StoreEntitySet="Employes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="NameInDocs" ColumnName="NameInDocs" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="SName" ColumnName="SName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileMetaDatas">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.FileMetaData)">
+        <MappingFragment StoreEntitySet="FileMetaDatas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="UploadDataTime" ColumnName="UploadDataTime" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InboxDocuments">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.InboxDocument)">
+        <MappingFragment StoreEntitySet="InboxDocuments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="SenderNum" ColumnName="SenderNum" />
+          <ScalarProperty Name="SenderDate" ColumnName="SenderDate" />
+          <ScalarProperty Name="ResponseOn" ColumnName="ResponseOn" />
+          <ScalarProperty Name="Reciever" ColumnName="Reciever" />
+          <ScalarProperty Name="DocTheme" ColumnName="DocTheme" />
+          <ScalarProperty Name="DocState" ColumnName="DocState" />
+          <ScalarProperty Name="BuildingObj" ColumnName="BuildingObj" />
+          <ScalarProperty Name="Files" ColumnName="Files" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OutboxDocuments">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.OutboxDocument)">
+        <MappingFragment StoreEntitySet="OutboxDocuments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RecieverOrg" ColumnName="RecieverOrg" />
+          <ScalarProperty Name="RecieverEmploye" ColumnName="RecieverEmploye" />
+          <ScalarProperty Name="BuildingObj" ColumnName="BuildingObj" />
+          <ScalarProperty Name="OutboxNum" ColumnName="OutboxNum" />
+          <ScalarProperty Name="OutboxDate" ColumnName="OutboxDate" />
+          <ScalarProperty Name="DocTheme" ColumnName="DocTheme" />
+          <ScalarProperty Name="WhoSign" ColumnName="WhoSign" />
+          <ScalarProperty Name="WhoMade" ColumnName="WhoMade" />
+          <ScalarProperty Name="ResponseOn" ColumnName="ResponseOn" />
+          <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+          <ScalarProperty Name="DocState" ColumnName="DocState" />
+          <ScalarProperty Name="Files" ColumnName="Files" />
+          <ScalarProperty Name="TypeOfOutboxDoc" ColumnName="TypeOfOutboxDoc" />
+          <ScalarProperty Name="IndexNumber" ColumnName="IndexNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypesOfOutboxDocs">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.TypesOfOutboxDoc)">
+        <MappingFragment StoreEntitySet="TypesOfOutboxDocs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NameOfType" ColumnName="NameOfType" />
+          <ScalarProperty Name="NumberingMethod" ColumnName="NumberingMethod" />
+          <ScalarProperty Name="NumeratorPrefix" ColumnName="NumeratorPrefix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UniqId" ColumnName="UniqId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Employe" ColumnName="Employe" />
+          <ScalarProperty Name="Invalid" ColumnName="Invalid" />
+          <ScalarProperty Name="Files" ColumnName="Files" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyStructures">
+      <EntityTypeMapping TypeName="IsTypeOf(okimtsDbModel.CompanyStructure)">
+        <MappingFragment StoreEntitySet="CompanyStructures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="ParentDepartmentId" ColumnName="ParentDepartmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
