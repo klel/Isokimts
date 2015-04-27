@@ -1,0 +1,176 @@
+﻿@model DataModel.OutboxDocument
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>OutboxDocument</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RecieverOrg, "RecieverOrg", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RecieverOrg", String.Empty)
+                @Html.ValidationMessageFor(model => model.RecieverOrg)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RecieverEmploye, "RecieverEmploye", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RecieverEmploye", String.Empty)
+                @Html.ValidationMessageFor(model => model.RecieverEmploye)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BuildingObj, "BuildingObj", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BuildingObj", String.Empty)
+                @Html.ValidationMessageFor(model => model.BuildingObj)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OutboxNum, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OutboxNum, new { @readonly=true })
+                @Html.ValidationMessageFor(model => model.OutboxNum)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OutboxDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OutboxDate)
+                @Html.ValidationMessageFor(model => model.OutboxDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DocTheme, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DocTheme)
+                @Html.ValidationMessageFor(model => model.DocTheme)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WhoSign, "WhoSign", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("WhoSign", String.Empty)
+                @Html.ValidationMessageFor(model => model.WhoSign)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WhoMade, "WhoMade", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("WhoMade", String.Empty)
+                @Html.ValidationMessageFor(model => model.WhoMade)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ResponseOn, "ResponseOn", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ResponseOn", String.Empty)
+                @Html.ValidationMessageFor(model => model.ResponseOn)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SentDate, new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SentDate)
+                @Html.ValidationMessageFor(model => model.SentDate)
+                <div id="regNumDate"></div>
+                <a id="reg">Registrate</a>
+                <div id="registratefrm">
+                    <p>Тут будем присваивать регистрацию</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DocState, "DocState", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DocState", String.Empty)
+                @Html.ValidationMessageFor(model => model.DocState)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Files, "Files", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Files", String.Empty)
+                @Html.ValidationMessageFor(model => model.Files)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TypeOfOutboxDoc, "TypeOfOutboxDoc", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TypeOfOutboxDoc", String.Empty)
+                @Html.ValidationMessageFor(model => model.TypeOfOutboxDoc)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Scripts/select2-3.4.6/select2.css")
+    @Scripts.Render("~/Scripts/select2-3.4.6/select2.js", "~/Scripts/select2-3.4.6/select2_locale_ru.js")
+
+<script>
+    $(document).ready(function () {
+        $('select').select2({
+            placeholder: "Выберите значение поля",
+            allowclear: true,
+            width: "off"
+        });
+        $("input[type='datetime']").datepicker();
+        $("#registratefrm").dialog({
+            autoOpen: false,
+            title: "Зарегистрировать письмо",
+            modal: true,
+            hide: { effect: "explode", duration: 1000 },
+            show: { effect: "blind", duration: 800 },
+            buttons: {
+                "Ok": function (e) {
+                    $.ajax({
+                        url: '/OutboxDocument/ReturnRegNumber',
+                        type: 'GET',
+                        dataType: "json"
+                    });
+                },
+                "Cancel": function (e) {
+                    
+                }
+        }
+        });
+      
+    });
+    $("#reg").button().on("click",function () { $("#registratefrm").dialog("open") });
+</script>
+}

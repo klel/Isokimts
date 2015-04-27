@@ -1,0 +1,138 @@
+﻿@model DataModel.OutboxDocument
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>OutboxDocument</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RecieverOrg, "RecieverOrg", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RecieverOrg", String.Empty)
+                @Html.ValidationMessageFor(model => model.RecieverOrg)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RecieverEmploye, "RecieverEmploye", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RecieverEmploye", String.Empty)
+                @Html.ValidationMessageFor(model => model.RecieverEmploye)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BuildingObj, "BuildingObj", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BuildingObj", String.Empty)
+                @Html.ValidationMessageFor(model => model.BuildingObj)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OutboxNum, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OutboxNum)
+                @Html.ValidationMessageFor(model => model.OutboxNum)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OutboxDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OutboxDate)
+                @Html.ValidationMessageFor(model => model.OutboxDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DocTheme, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DocTheme)
+                @Html.ValidationMessageFor(model => model.DocTheme)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WhoSign, "WhoSign", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("WhoSign", String.Empty)
+                @Html.ValidationMessageFor(model => model.WhoSign)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WhoMade, "WhoMade", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("WhoMade", String.Empty)
+                @Html.ValidationMessageFor(model => model.WhoMade)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ResponseOn, "ResponseOn", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ResponseOn", String.Empty)
+                @Html.ValidationMessageFor(model => model.ResponseOn)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SentDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SentDate)
+                @Html.ValidationMessageFor(model => model.SentDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DocState, "DocState", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DocState", String.Empty)
+                @Html.ValidationMessageFor(model => model.DocState)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Files, "Files", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Files", String.Empty)
+                @Html.ValidationMessageFor(model => model.Files)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TypeOfOutboxDoc, "TypeOfOutboxDoc", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TypeOfOutboxDoc", String.Empty)
+                @Html.ValidationMessageFor(model => model.TypeOfOutboxDoc)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

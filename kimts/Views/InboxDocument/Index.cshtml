@@ -1,0 +1,81 @@
+﻿@model IEnumerable<DataModel.InboxDocument>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SenderNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SenderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocTheme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuildinObject.ObjName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContractorEmploye.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employe.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileMetaData.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutboxDocument.OutboxNum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SenderNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SenderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocTheme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuildinObject.ObjName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContractorEmploye.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employe.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileMetaData.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutboxDocument.OutboxNum)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

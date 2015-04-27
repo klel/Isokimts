@@ -1,0 +1,123 @@
+﻿@model DataModel.OutboxDocument
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OutboxDocument</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OutboxNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutboxNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutboxDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutboxDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocTheme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocTheme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuildinObject.ObjName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuildinObject.ObjName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractorEmploye.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractorEmploye.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contractor.OrgName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contractor.OrgName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocState1.StateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocState1.StateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employe.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employe.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employe1.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employe1.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileMetaData.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileMetaData.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InboxDocument.SenderNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InboxDocument.SenderNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypesOfOutboxDoc.NameOfType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypesOfOutboxDoc.NameOfType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Шаблон в Word", "Word", new { id = Model.Id })
+</p>

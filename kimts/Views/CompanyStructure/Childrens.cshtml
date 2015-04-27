@@ -1,0 +1,24 @@
+﻿@model DataModel.CompanyStructure
+@foreach (var node in Model.ChildNodes)
+{
+    <ul>
+        @if (node != null)
+        {
+            <li>
+                <a href="#" class="usr">@node.DepartmentName</a>
+                @if (node.ChildNodes.Count > 0 || node.Employes.Count > 0)
+                {
+                    <ul>
+                        @foreach (var empl in node.Employes)
+                        {
+                            <li data-jstree='{"icon":"/Content/themes/default/User.png"}'>
+                                <a href="#" class="usr">@empl.FullName</a>
+                            </li>
+                        }
+                    </ul>
+                    @Html.Partial("Childrens", node)
+                }
+            </li>
+        }
+    </ul>
+}

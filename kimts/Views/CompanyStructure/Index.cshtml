@@ -1,0 +1,29 @@
+﻿@model DataModel.CompanyStructure
+
+@using Extensions.Helpers
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/jstree.js")
+    @Styles.Render("~/Content/themes/default/style.css")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tree').jstree();
+        });
+    </script>
+
+    }
+
+<h2>Index</h2>
+<div id="tree">
+    <ul>
+        <li>
+            <a href="#" class="usr">@Model.DepartmentName</a>
+            @Html.Partial("Childrens",Model)
+        </li>
+    </ul>
+</div>
+

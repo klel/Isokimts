@@ -1,0 +1,129 @@
+﻿@model IEnumerable<DataModel.OutboxDocument>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" id="dataTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OutboxNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutboxDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocTheme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuildinObject.ObjName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractorEmploye.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contractor.OrgName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocState1.StateName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employe.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employe1.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileMetaData.FileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InboxDocument.SenderNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypesOfOutboxDoc.NameOfType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutboxNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutboxDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocTheme)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BuildinObject.ObjName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContractorEmploye.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contractor.OrgName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocState1.StateName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employe.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employe1.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileMetaData.FileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InboxDocument.SenderNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypesOfOutboxDoc.NameOfType)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/DataTables-1.10.2/DataTables-1.10.2/media/js/jquery.dataTables.js")
+    @Styles.Render("~/Scripts/DataTables-1.10.2/DataTables-1.10.2/media/css/jquery.dataTables.css")
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').dataTable({
+                "oLanguage": {
+                    "sUrl": "//cdn.datatables.net/plug-ins/505bef35b56/i18n/Russian.json"
+                },
+                "scrollY": "440",
+                "paging": true,
+                "auto-width": true,
+                "processing": true,
+                "lengthChange": true,
+                "stateSave": true
+            });
+        });
+
+    </script>
+}

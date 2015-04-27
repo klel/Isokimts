@@ -1,0 +1,128 @@
+﻿@model DataModel.OutboxDocument
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OutboxDocument</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OutboxNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutboxNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutboxDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutboxDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocTheme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocTheme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuildinObject.ObjName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuildinObject.ObjName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractorEmploye.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractorEmploye.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contractor.OrgName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contractor.OrgName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocState1.StateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocState1.StateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employe.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employe.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employe1.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employe1.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileMetaData.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileMetaData.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InboxDocument.SenderNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InboxDocument.SenderNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypesOfOutboxDoc.NameOfType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypesOfOutboxDoc.NameOfType)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

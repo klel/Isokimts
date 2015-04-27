@@ -1,0 +1,90 @@
+﻿@model DataModel.InboxDocument
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InboxDocument</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SenderNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SenderNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SenderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SenderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocTheme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocTheme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuildinObject.ObjName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuildinObject.ObjName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractorEmploye.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractorEmploye.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employe.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employe.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileMetaData.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileMetaData.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutboxDocument.OutboxNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutboxDocument.OutboxNum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
